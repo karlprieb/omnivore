@@ -808,6 +808,35 @@ export function ThemeSelector(): JSX.Element {
             <Check color="#F9D354" size={20} />
           )}
         </Button>
+        <Button
+          style="themeSwitch"
+          css={{
+            display: 'flex',
+            alignItems: 'center',
+            alignContent: 'center',
+            justifyContent: 'center',
+            width: '30px',
+            height: '30px',
+            background: '#000000',
+            borderRadius: '50%',
+            border: 'unset',
+            '&:hover': {
+              transform: 'scale(1.1)',
+              border: '2px solid #6A6968',
+            },
+            '&[data-state="selected"]': {
+              border: '2px solid #6A6968',
+            },
+          }}
+          data-state={
+            currentTheme == ThemeId.Black ? 'selected' : 'unselected'
+          }
+          onClick={() => {
+            setCurrentTheme(ThemeId.Black)
+          }}
+        >
+          {currentTheme == ThemeId.Black && <Check color="#F9D354" size={20} />}
+        </Button>
       </HStack>
     </VStack>
   )
